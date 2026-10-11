@@ -1,10 +1,42 @@
 # Green Route
 
-AdaHack 2026, Jane Street challenge.
+Our submission to the AdaHack 2026 Jane Street challenge.
 
-Compares car, bus, bike, e-bike and walking for a commute on time, cost and CO₂, and recommends one.
+## Problem Statement
 
-## How it's calculated
+**Sustainable Transport**, the AdaHack 2026 Jane Street challenge.
+
+> A sustainable world is one in which our environmental systems and societies flourish, natural resources are able to replenish themselves, and people are able to live healthy and secure lives. Sustainability can be overlooked in favour of technological advancements, so we should consider how to fit it into our own projects.
+
+**The challenge:** Jane Street workers usually travel to the office by car. Build a program that encourages them to take a more sustainable route instead.
+
+Transport produces 13.7% of global greenhouse gas emissions, and sustainable transport also protects people from volatile fuel prices.
+
+## Our Approach
+
+Telling people to drive less rarely works, so we show them what driving actually costs them. For any commute, Green Route compares car, bus, bike, e-bike and walking on time, money and CO₂, then converts everything into one number: the hours of your life each option costs per year. The greener options often win on that measure too.
+
+## Running the App
+
+```
+pip install requests folium matplotlib tkintermapview pillow
+```
+
+Desktop app:
+
+```
+python green_route_app.py
+```
+
+Terminal version, which prints a table and saves `map.html` and `frontier.png`:
+
+```
+python green_route.py
+```
+
+Put an [OpenRouteService](https://openrouteservice.org) key in `api_key.txt` for real routes. Without one, routes are straight lines.
+
+## Method
 
 A year is 460 trips (there and back, 5 days a week, 46 weeks).
 
@@ -35,22 +67,10 @@ A year is 460 trips (there and back, 5 days a week, 46 weeks).
 
 **Recommendation.** The app picks the lowest true time. The terminal version picks the cleanest frontier option that's at most 15 minutes slower than driving.
 
-## Running it
+## Files
 
-```
-pip install requests folium matplotlib tkintermapview pillow
-```
-
-Desktop app:
-
-```
-python green_route_app.py
-```
-
-Terminal version, which prints a table and saves `map.html` and `frontier.png`:
-
-```
-python green_route.py
-```
-
-Put an [OpenRouteService](https://openrouteservice.org) key in `api_key.txt` for real routes. Without one, routes are straight lines.
+| File | Contents |
+| --- | --- |
+| `green_route.py` | Place search, routing, and the time, cost, CO₂ and true-time maths |
+| `green_route_app.py` | Desktop app: search boxes, route cards and map |
+| `safe_map.py` | Map widget that works with newer versions of tkinter |
