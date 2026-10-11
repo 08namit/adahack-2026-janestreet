@@ -2,8 +2,6 @@
 
 AdaHack 2026, Jane Street challenge.
 
-**Team:** [Namit Verma](https://github.com/08namit) and PARTNER_NAME
-
 Compares car, bus, bike, e-bike and walking for a commute on time, cost and CO₂, and recommends one.
 
 ## How it's calculated
