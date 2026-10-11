@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+api_key.txt
+routes_cache.json
+map.html
+frontier.png
